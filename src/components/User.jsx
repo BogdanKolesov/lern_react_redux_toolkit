@@ -6,7 +6,7 @@ import { Input } from './atoms/Input';
 
 const User = () => {
 	return (
-		<Flex>
+		<div>
 			<Text>User</Text>
 			<Flex>
 				<Flex column>
@@ -18,7 +18,7 @@ const User = () => {
 					<Text>SecondName</Text>
 				</Flex>
 			</Flex>
-		</Flex>
+		</div>
 	);
 };
 

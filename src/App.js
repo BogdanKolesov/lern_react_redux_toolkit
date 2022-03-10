@@ -1,10 +1,12 @@
 import User from "./components/User";
 import styled from 'styled-components';
+import Posts from "./components/Posts";
 
 function App() {
   return (
     <AppContainer>
       <User />
+      <Posts />
     </AppContainer>
   );
 }
