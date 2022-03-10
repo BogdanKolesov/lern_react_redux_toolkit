@@ -16,7 +16,6 @@ export const StyledButton = styled.button`
     margin: 5px;
     display: flex;
     justify-content: center;
-    align-items: center;
 `;
 
 export default Button;
