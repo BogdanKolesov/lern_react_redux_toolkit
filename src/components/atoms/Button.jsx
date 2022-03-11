@@ -1,11 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const Button = ({ children }) => {
-	return <StyledButton>{children}</StyledButton>;
-};
-
-export const StyledButton = styled.button`
+const Button = styled.button`
     background: transparent:
     cursor: pointer;
     border: 1px solid green;

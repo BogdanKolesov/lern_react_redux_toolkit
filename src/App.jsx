@@ -12,7 +12,7 @@ function App() {
 			<User />
 			<Posts />
 			{posts?.map(post => (
-				<PostItem key={post.id} post={posts} />
+				<PostItem key={post.id} post={post} />
 			))}
 			<Todo />
 		</AppContainer>
