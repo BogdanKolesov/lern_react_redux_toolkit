@@ -13,21 +13,36 @@ export const getTodos = createAsyncThunk(
     }
 )
 
+export const deleteTodoById = createAsyncThunk(
+    'todos/deleteTodoById',
+    async (id, { rejectWithValue, dispatch }) => {
+        await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+        dispatch(deleteTodo(id))
+    }
+)
+
 export const todoSlice = createSlice({
     name: 'todos',
     initialState,
     reducers: {
         setTodos: (state, action) => {
             state.todos = action.payload
+        },
+        deleteTodo: (state, action) => {
+            state.todos = state.todos.filter(todo => todo.id !== action.payload)
+
         }
     },
     extraReducers: {
-        [getTodos.fulfilled]: () => console.log('fulfilled'),
-        [getTodos.pending]: () => console.log('pending'),
-        [getTodos.rejected]: () => console.log('rejected')
-
+        [getTodos.fulfilled]: () => console.log('fulfilled'), //отправлен запрос
+        [getTodos.pending]: () => console.log('pending'), //запрос выполнен
+        [getTodos.rejected]: () => console.log('rejected'), //ошибка
+        ////
+        [deleteTodoById.fulfilled]: () => console.log('fulfilled'), //отправлен запрос
+        [deleteTodoById.pending]: () => console.log('pending'), //запрос выполнен
+        [deleteTodoById.rejected]: () => console.log('rejected') //ошибка
     }
 })
 
-export const { setTodos } = todoSlice.actions
+export const { setTodos, deleteTodo } = todoSlice.actions
 export default todoSlice.reducer
